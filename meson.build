@@ -12,7 +12,7 @@ version_h = declare_dependency(
     )
 )
 
-use_asmjit = false
+use_asmjit = true
 
 sources_expr = [
   # expr
