@@ -81,8 +81,10 @@ if use_asmjit
   incdir += include_directories('.')
   if host_machine.cpu_family().startswith('x86')
     add_project_arguments('-DVS_TARGET_CPU_X86', '-mavx', language: 'cpp')
+  elif host_machine.cpu_family().startswith('aarch64')
+    add_project_arguments('-DVS_TARGET_CPU_ARM64', language: 'cpp')
   else
-    error('the asmjit backend only support x86.')
+    error('the asmjit backend only supports x86 and ARM64.')
   endif
 else
   sources = sources_common + sources_expr2
